@@ -1,7 +1,21 @@
-$(window).scroll(function(){
-  if ($(window).scrollTop() > 50){
+$(window).scroll(function() {
+  if ($(window).scrollTop() > 50) {
     $('.nav').addClass('scroll');
-  }else{
-      $('.nav').removeClass('scroll');
-  }
-})
+  } else {
+    $('.nav').removeClass('scroll');
+  };
+  var y = $('.hero').height() + $('.about').height() + $('.services').height() + $('.news').outerHeight();
+
+  if ($(window).scrollTop() > y) {
+    $('.contact-short').addClass('scroll');
+  } else {
+    $('.contact-short').removeClass('scroll');
+  };
+});
+
+$(".contact-short").click(function() {
+  $('html,body').animate({
+      scrollTop: $(".contact").offset().top
+    },
+    'slow');
+});
