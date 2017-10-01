@@ -1,8 +1,10 @@
+
+
 $(window).scroll(function() {
   if ($(window).scrollTop() > 50) {
-    $('.nav').addClass('scroll');
+    $('.nav-web').addClass('scroll');
   } else {
-    $('.nav').removeClass('scroll');
+    $('.nav-web').removeClass('scroll');
   };
   var y = $('.hero').height() + $('.about').height() + $('.services').height() + $('.news').outerHeight();
 
@@ -16,6 +18,17 @@ $(window).scroll(function() {
 $(".contact-short").click(function() {
   $('html,body').animate({
       scrollTop: $(".contact").offset().top
+    },
+    'slow');
+});
+
+
+// click to scroll
+var section = "";
+$(".nav-item").click(function() {
+  section = $(this).attr('id');
+  $('html,body').animate({
+      scrollTop: $("."+ section).offset().top
     },
     'slow');
 });
